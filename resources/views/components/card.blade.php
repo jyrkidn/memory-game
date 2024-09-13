@@ -1,3 +1,5 @@
+@props(['image', 'name'])
+
 <li
     class="relative"
     x-data="{ hidden: true}"
@@ -13,12 +15,12 @@
             x-transition:enter="transition ease-out duration-400"
             x-transition:enter-start="opacity-0 scale-90"
             x-transition:enter-end="opacity-100 scale-100"
-            src="{{ asset('cards/mighty-pups.jpg') }}"
-            alt=""
+            src="{{ $image }}"
+            alt="{{ $name }}"
             class="pointer-events-none object-cover"
         >
         <button :disabled="! hidden" @click="hidden = false" type="button" class="absolute inset-0 focus:outline-none">
-            <span class="sr-only">View details for IMG_4985.HEIC</span>
+            <span class="sr-only">{{ $name }}</span>
         </button>
     </div>
 </li>
